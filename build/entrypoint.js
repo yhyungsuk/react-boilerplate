@@ -1,5 +1,5 @@
-const inquirer = require('inquirer')
-const { getExecutablePromise, runSyncPromises } = require('./runner')
+import inquirer from 'inquirer'
+import { getExecutablePromise, runSyncPromises } from './runner.js'
 
 inquirer
   .prompt([

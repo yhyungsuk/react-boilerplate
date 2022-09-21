@@ -1,13 +1,13 @@
-const { spawnSync } = require('child_process')
+import { spawnSync } from 'child_process'
 
-const execute = (key, cmd, ...args) => {
+export const execute = (key, cmd, ...args) => {
   spawnSync(cmd, args, {
     detached: false,
     stdio: 'inherit',
   })
 }
 
-const getExecutablePromise =
+export const getExecutablePromise =
   (key, cmd = [], options = []) =>
   () =>
     new Promise((resolve, reject) => {
@@ -22,14 +22,8 @@ const getExecutablePromise =
       resolve(key)
     })
 
-const runSyncPromises = async (promises) => {
+export const runSyncPromises = async (promises) => {
   for await (const promise of promises) {
     promise()
   }
-}
-
-module.exports = {
-  execute,
-  getExecutablePromise,
-  runSyncPromises,
 }

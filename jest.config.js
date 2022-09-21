@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   testMatch: ['<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'],
   collectCoverageFrom: ['<rootDir>/src/**/*.{js,jsx,ts,tsx}'],
   coveragePathIgnorePatterns: ['<rootDir>/src/main.jsx'],
