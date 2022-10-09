@@ -2,6 +2,7 @@
 
 ## Specs
 
+- TypeScript
 - React
 - Vite
 - Jest + Faker

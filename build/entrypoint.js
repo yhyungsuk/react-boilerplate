@@ -48,17 +48,17 @@ inquirer
               ],
             },
           ])
-          commands.push(getExecutablePromise(task, ['yarn', 'test'], options))
+          commands.push(getExecutablePromise(task, ['test', ...options]))
         }
         break
       case 'local':
         {
-          commands.push(getExecutablePromise(task, ['yarn', 'dev']))
+          commands.push(getExecutablePromise(task, ['dev']))
         }
         break
       case 'stage':
         {
-          commands.push(getExecutablePromise(task, ['yarn', 'build'], ['--mode', 'stage']))
+          commands.push(getExecutablePromise(task, ['build', '--mode', 'stage']))
           const { subtask } = await inquirer.prompt([
             {
               type: 'list',
@@ -77,13 +77,13 @@ inquirer
             },
           ])
           if (subtask === 'preview') {
-            commands.push(getExecutablePromise(subtask, ['yarn', 'serve']))
+            commands.push(getExecutablePromise(subtask, ['serve']))
           }
         }
         break
       case 'production':
         {
-          commands.push(getExecutablePromise(task, ['yarn', 'build']))
+          commands.push(getExecutablePromise(task, ['build']))
           const { subtask } = await inquirer.prompt([
             {
               type: 'list',
@@ -102,14 +102,14 @@ inquirer
             },
           ])
           if (subtask === 'preview') {
-            commands.push(getExecutablePromise(subtask, ['yarn', 'serve']))
+            commands.push(getExecutablePromise(subtask, ['serve']))
           }
         }
         break
       case 'prepare':
         {
-          commands.push(getExecutablePromise(task, ['yarn', 'lint']))
-          commands.push(getExecutablePromise(task, ['yarn', 'test'], ['--coverage']))
+          commands.push(getExecutablePromise(task, ['lint']))
+          commands.push(getExecutablePromise(task, ['test', '--coverage']))
         }
         break
       default:

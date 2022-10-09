@@ -1,24 +1,15 @@
 import { spawnSync } from 'child_process'
 
-export const execute = (key, cmd, ...args) => {
-  spawnSync(cmd, args, {
-    detached: false,
+export const execute = (args) =>
+  spawnSync('yarn', args, {
     stdio: 'inherit',
   })
-}
 
 export const getExecutablePromise =
-  (key, cmd = [], options = []) =>
+  (key, args = []) =>
   () =>
-    new Promise((resolve, reject) => {
-      if (!Array.isArray(cmd)) {
-        reject('Command list is not an array.')
-        return
-      }
-
-      if (cmd.length > 0) {
-        execute(key, ...cmd, ...options)
-      }
+    new Promise((resolve) => {
+      execute(args)
       resolve(key)
     })
 
