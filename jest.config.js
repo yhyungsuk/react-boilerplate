@@ -24,5 +24,6 @@ export default {
     '<rootDir>/vite.config.js',
     '<rootDir>/coverage/',
     '<rootDir>/npm_packages/',
+    '<rootDir>/src/stories/',
   ],
 }

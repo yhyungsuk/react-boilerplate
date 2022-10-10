@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+# Introduction
+
+A collaborative environment for devs and designers.
+
+❗**Storybook v6.5 still has minor issues when working with React 18**❗ (ie. transition from ReactDom.render to ReactDom.createRoot). You may ignore the warnings for now.
+
+## Stubbing External Data
+
+Refer to this **[link](https://storybook-addon-mock.vercel.app/?path=/story/docs-installation--page)**.
+
+## Styling with a Single CSS File
+
+Add the following line to the `storybook/preview-head.html` after placing the CSS file in `{projectRoot}/public` directory.
+
+```html
+<link rel="stylesheet" type="text/css" href="/{someCss.css}" />
+```
+
+## Design Systems
+
+Storybook supports a lot of the features that a designer may use on a day-to-day basis out of the box.
+Refer to the official documentation.

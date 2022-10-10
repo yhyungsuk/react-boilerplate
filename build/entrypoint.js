@@ -13,16 +13,24 @@ inquirer
           value: 'test',
         },
         {
-          name: 'Local Build',
+          name: '[Build] Local',
           value: 'local',
         },
         {
-          name: 'Stage Build',
+          name: '[Build] Stage',
           value: 'stage',
         },
         {
-          name: 'Production Build',
+          name: '[Build] Production',
           value: 'production',
+        },
+        {
+          name: '[Storybook] Local',
+          value: 'storybook-local',
+        },
+        {
+          name: '[Storybook] Build',
+          value: 'storybook-build',
         },
         {
           name: 'Prepare Commit',
@@ -104,6 +112,16 @@ inquirer
           if (subtask === 'preview') {
             commands.push(getExecutablePromise(subtask, ['serve']))
           }
+        }
+        break
+      case 'storybook-local':
+        {
+          commands.push(getExecutablePromise(task, ['storybook']))
+        }
+        break
+      case 'storybook-build':
+        {
+          commands.push(getExecutablePromise(task, ['build-storybook']))
         }
         break
       case 'prepare':

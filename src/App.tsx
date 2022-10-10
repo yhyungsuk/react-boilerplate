@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
-import './App.css'
 import Sample from './components/Sample'
+import './App.scss'
 
 const App: FC = () => {
   const [count, setCount] = useState(0)

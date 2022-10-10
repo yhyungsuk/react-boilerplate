@@ -1,3 +1,5 @@
+node_modules
+npm_packages
 dist
 coverage
-node_modules
+storybook-static

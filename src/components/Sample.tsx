@@ -1,8 +1,14 @@
 import { FC, useEffect, useRef } from 'react'
-import './Sample.css'
 import { BACKEND_BASEURL, RUNNING_MODE } from '../config'
+import './Sample.scss'
 
-const Sample: FC = () => {
+type SampleProps = {
+  durationSeconds?: number
+  backgroundColor?: string
+  onClick?: () => void
+}
+
+const Sample: FC<SampleProps> = ({ durationSeconds = 5, backgroundColor, onClick }: SampleProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -11,11 +17,11 @@ const Sample: FC = () => {
     setTimeout(() => {
       containerRef.current?.classList?.remove('show')
       containerRef.current?.classList?.add('hide')
-    }, 5000)
+    }, durationSeconds * 1000)
   }, [])
 
   return (
-    <div ref={containerRef} id="sample">
+    <div ref={containerRef} id="sample" style={{ backgroundColor }} onClick={onClick}>
       <div>
         Backend running on: <strong>{BACKEND_BASEURL}</strong>
       </div>
